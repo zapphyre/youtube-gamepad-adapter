@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.awt.*;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
@@ -88,13 +87,8 @@ public class xDoToolUtil {
 
     @SneakyThrows
     public static void tabSwitchOn() {
-//        String[] ctrlCmd = new String[]{"xdotool", "keydown", "ctrl"};
         String[] ctrlCmd = new String[]{"xdotool", "keydown", "ctrl", "&&", "xdotool", "key", "Tab"};
-        Process ctrl = new ProcessBuilder(ctrlCmd).start();
-//        ctrl.wait(120);
-
-//        String[] tabCmd = new String[]{"xdotool", "key", "Tab"};
-//        new ProcessBuilder(tabCmd).start();
+        new ProcessBuilder(ctrlCmd).start();
     }
 
     @SneakyThrows
@@ -116,68 +110,48 @@ public class xDoToolUtil {
         Process proc = new ProcessBuilder(args).start();
     }
 
+    @SneakyThrows
     public static Integer[] getScreenDimensions() {
         String[] args = new String[]{"cat", "/sys/class/graphics/*/virtual_size"};
-        Process proc;
-        try {
-            proc = new ProcessBuilder(args).start();
-            String line = readLine(proc.getInputStream());
-            String[] d = line.split(",");
+        Process proc = new ProcessBuilder(args).start();
+        String line = readLine(proc.getInputStream());
+        String[] d = line.split(",");
 
-            return new Integer[] {Integer.valueOf(d[0]), Integer.valueOf(d[1])};
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        return new Integer[]{Integer.valueOf(d[0]), Integer.valueOf(d[1])};
     }
 
+    @SneakyThrows
     public static void togglePlayYoutube() {
         Integer winId = getYoutubeWindowIDs().getLast();
         log.info("Youtube window ID: {}", winId);
 
         String[] args = new String[]{"xdotool", "key", "--window", winId.toString(), "k"};
-        try {
-            Process proc = new ProcessBuilder(args).inheritIO().start();
-//            proc.destroy();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        new ProcessBuilder(args).inheritIO().start();
     }
 
+    @SneakyThrows
     public static List<Integer> getYoutubeWindowIDs() {
         String[] args = new String[]{"xdotool", "search", "--name", "youtube"};
-        Process proc;
-        try {
-            proc = new ProcessBuilder(args).start();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        Process proc = new ProcessBuilder(args).start();
 
         return read(proc.getInputStream());
     }
 
+    @SneakyThrows
     public static String readLine(InputStream inputStream) {
-        try {
-            final BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-            return reader.readLine();
-        } catch (final Exception e) {
-            e.printStackTrace();
-        }
-
-        return "";
+        return new BufferedReader(new InputStreamReader(inputStream))
+                .readLine();
     }
 
+    @SneakyThrows
     public static List<Integer> read(InputStream inputStream) {
         List<Integer> winIds = new LinkedList<>();
-        try {
-            final BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-            String line = null;
-            while ((line = reader.readLine()) != null) {
-                winIds.add(Integer.valueOf(line));
-            }
-            reader.close();
-        } catch (final Exception e) {
-            e.printStackTrace();
+        final BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        String line = null;
+        while ((line = reader.readLine()) != null) {
+            winIds.add(Integer.valueOf(line));
         }
+        reader.close();
 
         return winIds;
     }
