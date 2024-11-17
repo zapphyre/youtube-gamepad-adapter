@@ -16,67 +16,67 @@ public class xDoToolUtil {
     @SneakyThrows
     public static void ffFwd() {
         String[] args = new String[]{"xdotool", "key", "Alt+Right"};
-        Process proc = new ProcessBuilder(args).start();
+        new ProcessBuilder(args).start();
     }
 
     @SneakyThrows
     public static void ffBack() {
         String[] args = new String[]{"xdotool", "key", "Alt+Left"};
-        Process proc = new ProcessBuilder(args).start();
+        new ProcessBuilder(args).start();
     }
 
     @SneakyThrows
     public static void click() {
         String[] args = new String[]{"xdotool", "click", "1"};
-        Process proc = new ProcessBuilder(args).start();
+        new ProcessBuilder(args).start();
     }
 
     @SneakyThrows
     public static void pressCtrlT() {
         String[] args = new String[]{"xdotool", "key", "Ctrl+t"};
-        Process proc = new ProcessBuilder(args).start();
+        new ProcessBuilder(args).start();
     }
 
     @SneakyThrows
     public static void pressCtrlW() {
         String[] args = new String[]{"xdotool", "key", "Ctrl+w"};
-        Process proc = new ProcessBuilder(args).start();
+        new ProcessBuilder(args).start();
     }
 
     @SneakyThrows
     public static void pressF() {
         String[] args = new String[]{"xdotool", "key", "f"};
-        Process proc = new ProcessBuilder(args).start();
+        new ProcessBuilder(args).start();
     }
 
     @SneakyThrows
     public static void pressSpace() {
         String[] args = new String[]{"xdotool", "key", "Space"};
-        Process proc = new ProcessBuilder(args).start();
+        new ProcessBuilder(args).start();
     }
 
     @SneakyThrows
     public static void keyDown() {
         String[] args = new String[]{"xdotool", "key", "Down"};
-        Process proc = new ProcessBuilder(args).start();
+        new ProcessBuilder(args).start();
     }
 
     @SneakyThrows
     public static void keyUp() {
         String[] args = new String[]{"xdotool", "key", "Up"};
-        Process proc = new ProcessBuilder(args).start();
+        new ProcessBuilder(args).start();
     }
 
     @SneakyThrows
     public static void keyRight() {
         String[] args = new String[]{"xdotool", "key", "Right"};
-        Process proc = new ProcessBuilder(args).start();
+        new ProcessBuilder(args).start();
     }
 
     @SneakyThrows
     public static void keyLeft() {
         String[] args = new String[]{"xdotool", "key", "Left"};
-        Process proc = new ProcessBuilder(args).start();
+        new ProcessBuilder(args).start();
     }
 
     @SneakyThrows
@@ -94,13 +94,13 @@ public class xDoToolUtil {
     @SneakyThrows
     public static void pageDown() {
         String[] args = new String[]{"xdotool", "key", "Page_Down"};
-        Process proc = new ProcessBuilder(args).start();
+        new ProcessBuilder(args).start();
     }
 
     @SneakyThrows
     public static void pageUp() {
         String[] args = new String[]{"xdotool", "key", "Page_Up"};
-        Process proc = new ProcessBuilder(args).start();
+        new ProcessBuilder(args).start();
     }
 
     @SneakyThrows
