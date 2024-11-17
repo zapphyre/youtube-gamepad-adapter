@@ -45,7 +45,7 @@ public class NewTabScene extends BaseScene {
     }
 
     @Override
-    public Scene rotaryClick() {
+    public Scene leftStickClick() {
         click();
 
         return new VideoPlayerScene();

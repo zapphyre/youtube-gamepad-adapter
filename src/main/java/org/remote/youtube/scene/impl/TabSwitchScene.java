@@ -21,7 +21,7 @@ public class TabSwitchScene extends BaseScene {
     }
 
     @Override
-    public Scene rotaryClick() {
+    public Scene leftStickClick() {
         pressSpace();
         tabSwitchOff();
 

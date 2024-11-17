@@ -25,13 +25,6 @@ public class BaseScene implements Scene {
         return this;
     }
 
-    @Override
-    public Scene rotaryClick() {
-        click();
-
-        return this;
-    }
-
     public Scene leftStickClick() {
         tabSwitchOn();
 
@@ -59,7 +52,7 @@ public class BaseScene implements Scene {
 
     @Override
     public Scene buttonY() {
-        log.debug("base green long click");
+        log.debug("button Y click");
 
         pressCtrlW();
 
@@ -67,7 +60,7 @@ public class BaseScene implements Scene {
     }
 
     public Scene buttonA() {
-        log.debug("base yellow click");
+        log.debug("button A click");
 
         togglePlayYoutube();
 
@@ -103,11 +96,11 @@ public class BaseScene implements Scene {
 
     @Override
     public Scene analogLeftD() {
-        return null;
+        return this;
     }
 
     @Override
     public Scene analogLeftU() {
-        return null;
+        return this;
     }
 }

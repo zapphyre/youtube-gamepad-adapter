@@ -6,8 +6,6 @@ public interface Scene {
 
     Scene analogLeftL();
 
-    Scene rotaryClick();
-
     Scene leftStickClick();
 
     Scene buttonRed();
